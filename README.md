@@ -29,15 +29,20 @@ Veri seti `Data/` klasörü altında bulunmaktadır. Aynı zamanda [Kaggle - Tit
 - **Seaborn** — İstatistiksel görselleştirme
 ## Kurulum ve Ayarlar
 
-### 1. Sanal Ortamı Oluştur/Etkinleştir
+### 1. Repository'yi Klonlayın
 
-Henüz sanal ortamı kurmadıysanız:
+```bash
+git clone https://github.com/melercg/titanic-data-analysis.git
+cd titanic-data-analysis
+```
+
+### 2. Sanal Ortam (venv) Oluşturun
 
 ```bash
 python -m venv venv
 ```
 
-Sanal ortamı etkinleştirin:
+### 3. Sanal Ortamı Etkinleştirin
 
 **Windows (PowerShell):**
 ```bash
@@ -54,19 +59,19 @@ Sanal ortamı etkinleştirin:
 source venv/bin/activate
 ```
 
-### 2. Bağımlılıkları Yükleyin
+### 4. Bağımlılıkları Yükleyin
 
 ```bash
 pip install pandas numpy matplotlib seaborn jupyter notebook
 ```
 
-### 3. Notebook'u Başlatın
+### 5. Notebook'u Başlatın
 
 ```bash
 jupyter notebook
 ```
 
-Ardından `titanic_analysis.ipynb` dosyasını açın.
+Açılan sayfada `titanic_analysis.ipynb` dosyasına tıklayın.
 
 ## Defter İçeriği
 
@@ -112,6 +117,15 @@ Analiz defteri aşağıdaki bölümleri içermektedir:
 
 **Ana Çıkarım:** "Kadınlar ve çocuklar önce" ilkesi gözlemlenmiştir, ancak bu öncelik sosyal sınıfa göre belirgin biçimde farklılaşmıştır.
 
+## Notlar
 
+- Bu not defteri, her analiz adımı için açıklayıcı markdown hücreleri içermektedir.
+- Tüm görselleştirmeler doğrudan not defterine yerleştirilmiştir.
+- Veri temizleme yöntemleri (mean / mode imputation) yorumlarla birlikte sunulmuştur.
 
-## Dosya Yapısı
+  
+## Yazar
+
+**Melisa Erocagi**
+
+İlk veri bilimi projesi olarak hazırlanmıştır. Geri bildirimler için açığım. 
