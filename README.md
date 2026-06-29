@@ -1,132 +1,109 @@
-# titanic-data-analysis
-İlk veri bilimi projem: Titanic EDA
-# 🚢 Titanic Veri Analizi: Hayatta Kalmanın Sosyal Boyutu
+#  Titanik Veri Analizi: Hayatta Kalmanın Sosyal Boyutu
 
-##  Proje Hakkında
+Jupyter notebook tabanlı, Python veri bilimi kütüphaneleri kullanılarak Titanic veri kümesi üzerinde gerçekleştirilen kapsamlı bir keşifsel veri analizi (EDA) ve görselleştirme projesidir.
 
-Bu projede, Titanic faciasında hayatta kalmayı belirleyen **sosyal faktörler** analiz edilmektedir.
+## Genel Bakış
 
-##  İçindekiler
+Bu projede, Titanic faciasında hayatta kalmayı belirleyen **sosyal faktörler** incelenmektedir. Veri yükleme, temizleme, eksik değer analizi, feature engineering ve veri içindeki kalıpları anlamak için çeşitli istatistiksel ve görsel incelemeler gerçekleştirilmiştir.
 
-### 1. Veri Hazırlığı
-- Kütüphaneler (`import`)
-- Veri Yükleme (`pd.read_csv`)
-- İlk Bakış (`head`)
-- Veri Tipleri ve Yapısı (`info`)
-- İstatistiksel Özet (`describe`)
-
-### 2. Veri Temizleme
-- Eksik Veri Analizi (`isnull`)
-- Eksik Değer Tamamlama (`fillna`)
-
-### 3. Feature Engineering
-- Title Çeşitliliği ve Gruplandırma (`replace`)
-- Yaş Bazlı Gruplandırma (`apply`)
-
-### 4. Analiz ve Görselleştirme
-- Kategori Bazlı Hayatta Kalma (`groupby + agg`)
-- Sosyal Sınıf Analizi (`groupby`)
-- Sınıf × Kategori Çapraz Analiz (`heatmap`)
-
-### 5. Sonuç ve Çıkarımlar
-
-##  Araştırma Sorusu
+## Araştırma Sorusu
 
 > **Cinsiyet, yaş ve sosyal sınıf hayatta kalmayı nasıl etkiledi?**
 
-##  Veri Seti
+## Veri Kümesi
 
-- **Kaynak:** [Kaggle - Titanic Dataset](https://www.kaggle.com/c/titanic)
-- **Boyut:** 891 yolcu, 11 özellik
-- **Hedef değişken:** `Survived` (0 = Öldü, 1 = Kurtuldu)
+Bu proje, klasik Titanic veri setini kullanmaktadır. İki CSV dosyasından oluşmaktadır:
 
-## 🛠️Kullanılan Teknolojiler
+- **train.csv** — Hayatta kalma sonuçlarını içeren eğitim veri seti
+- **test.csv** — Tahminler için test veri seti
 
-- **Python 3.x**
-- **Pandas, NumPy** — Veri manipülasyonu
-- **Matplotlib, Seaborn** — Görselleştirme
-- **Jupyter Notebook** (Google Colab)
+Veri seti `Data/` klasörü altında bulunmaktadır. Aynı zamanda [Kaggle - Titanic Competition](https://www.kaggle.com/c/titanic) sayfasından da indirilebilir.
 
-##  Dosya Yapısı
----
+## Kullanılan Teknolojiler
 
-##  Projeyi Çalıştırma Rehberi
+- **Python 3.x** — Programlama dili
+- **Jupyter Notebook** — Etkileşimli hesaplama ortamı
+- **Pandas** — Veri işleme
+- **NumPy** — Sayısal işlemler
+- **Matplotlib** — Grafik çizim kütüphanesi
+- **Seaborn** — İstatistiksel görselleştirme
+## Kurulum ve Ayarlar
 
-Bu projeyi farklı yöntemlerle çalıştırabilirsiniz. İhtiyacınıza göre **3 farklı yol** sunuyorum:
+### 1. Sanal Ortamı Oluştur/Etkinleştir
 
-### Yöntem 1: Google Colab (En Kolay)
+Henüz sanal ortamı kurmadıysanız:
 
-Hiçbir kurulum gerektirmez, tarayıcıdan çalıştırırsınız.
-
-1. **Notebook'u Colab'da açın:**
-   - [titanic_analysis.ipynb](titanic_analysis.ipynb) dosyasına tıklayın
-   - Sağ üstte **"Open in Colab"** butonuna basın
-
-2. **Veri setini yükleyin:**
-   - Bu repository'deki `Data/` klasöründen `train.csv` ve `test.csv` indirin
-   - Colab sol panelindeki klasör ikonundan **Upload** ile yükleyin
-   - Veya Kaggle'dan ZIP olarak indirip yükleyin: [Kaggle Titanic](https://www.kaggle.com/c/titanic/data)
-
-3. **Notebook'u çalıştırın:**
-   - **Runtime → Run all** ile tüm hücreleri çalıştırın
-
-###  Yöntem 2: VS Code + Virtual Environment
-
-Lokal makinenizde profesyonel bir kurulum.
-
-1. **Repository'yi klonlayın:**
 ```bash
-   git clone https://github.com/melercg/titanic-data-analysis.git
-   cd titanic-data-analysis
+python -m venv venv
 ```
 
-2. **Sanal ortam (venv) oluşturun:**
+Sanal ortamı etkinleştirin:
 
-   VS Code'da terminal açın (`Ctrl + ~`):
+**Windows (PowerShell):**
 ```bash
-   python -m venv venv
+.\venv\Scripts\Activate.ps1
 ```
 
-3. **Sanal ortamı aktifleştirin:**
-
-   **Windows:**
+**Windows (Komut İstemi):**
 ```bash
-   venv\Scripts\activate
+.\venv\Scripts\activate.bat
 ```
 
-   **Mac/Linux:**
+**Mac/Linux:**
 ```bash
-   source venv/bin/activate
+source venv/bin/activate
 ```
 
-4. **Gerekli kütüphaneleri yükleyin:**
+### 2. Bağımlılıkları Yükleyin
+
 ```bash
-   pip install pandas numpy matplotlib seaborn jupyter ipykernel
+pip install pandas numpy matplotlib seaborn jupyter notebook
 ```
 
-5. **Jupyter Notebook'u başlatın:**
+### 3. Notebook'u Başlatın
+
 ```bash
-   jupyter notebook
+jupyter notebook
 ```
 
-   Veya VS Code'da `titanic_analysis.ipynb` dosyasına tıklayıp kernel olarak `venv`'i seçin.
+Ardından `titanic_analysis.ipynb` dosyasını açın.
 
-6. **Çalıştırın:**
-   - Hücreleri sırayla `Shift + Enter` ile çalıştırın
+## Defter İçeriği
 
-###  Yöntem 3: Kaggle Üzerinden
+Analiz defteri aşağıdaki bölümleri içermektedir:
 
-Kaggle hesabınız varsa direkt çalışabilirsiniz.
+### 1. Veri Hazırlığı
+- **Kütüphaneler** (`import`) — Gerekli kütüphanelerin yüklenmesi
+- **Veri Yükleme** (`pd.read_csv`) — Eğitim veri setinin içe aktarımı
+- **İlk Bakış** (`head`) — Verinin ilk satırlarının incelenmesi
+- **Veri Tipleri ve Yapısı** (`info`) — Sütun tipleri ve eksik değer özeti
+- **İstatistiksel Özet** (`describe`) — Sayısal sütunların istatistikleri
 
-1. [Kaggle Titanic Competition](https://www.kaggle.com/c/titanic) sayfasına gidin
-2. **"New Notebook"** ile yeni notebook oluşturun
-3. Bu repository'deki `titanic_analysis.ipynb` içeriğini kopyalayıp yapıştırın
-4. Veri seti Kaggle'da **otomatik bağlı** gelir
-5. Çalıştırın
+### 2. Veri Temizleme
+- **Eksik Veri Analizi** (`isnull`) — Eksik değerlerin yüzde olarak hesaplanması
+- **Eksik Değer Tamamlama** (`fillna`) — Sayısal için `mean`, kategorik için `mode` yöntemi
 
----
+### 3. Feature Engineering
+- **Title Çıkarımı** — `Name` sütunundan unvan bilgisinin elde edilmesi
+- **Title Çeşitliliği ve Gruplandırma** (`replace`) — 17 farklı unvanın 5 kategoriye indirgenmesi
+- **Yaş Bazlı Gruplandırma** (`apply`) — Çocuk, Yaşlı, Yetişkin Kadın, Yetişkin Erkek kategorileri
 
-##  Temel Bulgular
+### 4. Analiz ve Görselleştirme
+- **Kategori Bazlı Hayatta Kalma** (`groupby + agg`) — Her kategorinin kurtulma oranı
+- **Sosyal Sınıf Analizi** (`groupby`) — Pclass'a göre hayatta kalma
+- **Sınıf × Kategori Çapraz Analiz** (`heatmap`) — İki boyutlu görselleştirme
+
+### 5. Sonuç ve Çıkarımlar
+
+## Başlıca Analiz Alanları
+
+- **Veri Kalitesi** — Eksik değer kalıpları ve veri eksiksizliği
+- **Yolcu Demografisi** — Yaş, cinsiyet ve sınıf analizi
+- **Hayatta Kalma Kalıpları** — Hayatta kalmayı etkileyen sosyal faktörler
+- **Çapraz Analizler** — Sınıf ve kategori birleşiminin etkisi
+- **Görselleştirmeler** — Bar chart, heatmap ve karşılaştırmalı grafikler
+
+## Temel Bulgular
 
 | Profil | Kurtulma Oranı |
 |---|---|
@@ -135,10 +112,6 @@ Kaggle hesabınız varsa direkt çalışabilirsiniz.
 
 **Ana Çıkarım:** "Kadınlar ve çocuklar önce" ilkesi gözlemlenmiştir, ancak bu öncelik sosyal sınıfa göre belirgin biçimde farklılaşmıştır.
 
----
 
-## Yazar
 
-**Melisa Erocagi**
-
-İlk veri bilimi projesi — geri bildirimler için açığım. 
+## Dosya Yapısı
